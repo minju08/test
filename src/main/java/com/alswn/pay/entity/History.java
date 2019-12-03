@@ -4,26 +4,27 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@IdClass(HistoryId.class)
 public class History {
 	//거래일자,계좌번호,거래번호,금액,수수료,취소여부
 	//20180102,11111111,1,1000000,0,N
 	//20180203,11111111,1,500000,1000,Y
 	
+	@Id
 	@Temporal(TemporalType.DATE)
 	@Column(name="tr_time")
 	private Date trTime;
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="customer_num")
-//	private Customer Customer;
+	@Id
+	private Customer Customer;
 	
-	@Column(name="acct_no")
-	private String acctNo;
-	
+	@Id
 	@Column(name="seq")
 	private int seq;
 	

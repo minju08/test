@@ -11,7 +11,7 @@ public class Branch {
 	@Column(name="code", nullable = false)
 	private String code;
 	
-	@Column(name="code", nullable = false)
+	@Column(name="name", nullable = false)
 	private String name;
 
 	public String getCode() {

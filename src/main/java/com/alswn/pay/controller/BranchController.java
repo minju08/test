@@ -1,7 +1,5 @@
 package com.alswn.pay.controller;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +15,13 @@ import com.alswn.pay.dto.TotalBranchResDto;
 public class BranchController {
 	
 	
+	
+	
 //	연도별 관리점별 거래금액 합계를 구하고 합계금액이 큰 순서로 출력하는 API 개발.
 //	( 취소여부가 ‘Y’ 거래는 취소된 거래임)
 	@GetMapping(value = "")
 	public ResponseEntity<TotalBranchResDto> getBranches(){
+		
 		
 		return null;
 	}
