@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
@@ -26,27 +25,24 @@ public class DataUtil {
     		CsvSchema schema = CsvSchema.builder()
     	            .addColumn("acctNo",CsvSchema.ColumnType.STRING)
     	            .addColumn("name",CsvSchema.ColumnType.STRING)
-    	            .addColumn("branchCode",CsvSchema.ColumnType.STRING)
+    	            .addColumn("code",CsvSchema.ColumnType.STRING)
     	            .build().withHeader();
     		
     		ObjectReader reader = mapper.readerFor(clazz).with(schema);
             return reader.<T>readValues(stream).readAll();
     	} else {
     		CsvSchema schema = CsvSchema.builder()
-    	            .addColumn("seq",CsvSchema.ColumnType.STRING)
     	            .addColumn("trTime",CsvSchema.ColumnType.STRING)
-    	            .addColumn("status",CsvSchema.ColumnType.BOOLEAN)
+    	            .addColumn("acctNo",CsvSchema.ColumnType.STRING)
+    	            .addColumn("seq",CsvSchema.ColumnType.STRING)
     	            .addColumn("trAmt",CsvSchema.ColumnType.NUMBER)
     	            .addColumn("trComm",CsvSchema.ColumnType.STRING)
-    	            .addColumn("customerAcctNo",CsvSchema.ColumnType.STRING)
+    	            .addColumn("status",CsvSchema.ColumnType.STRING)
     	            .build().withHeader();
     		
     		ObjectReader reader = mapper.readerFor(clazz).with(schema);
             return reader.<T>readValues(stream).readAll();
     	}
-//        CsvSchema schema = mapper.schemaFor(clazz).withHeader().withColumnReordering(true);
-//        ObjectReader reader = mapper.readerFor(clazz).with(schema);
-//        return reader.<T>readValues(stream).readAll();
     }
 
 }

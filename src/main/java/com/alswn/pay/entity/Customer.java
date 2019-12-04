@@ -6,10 +6,12 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
+@Table(name = "CUSTOMER")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer {
 

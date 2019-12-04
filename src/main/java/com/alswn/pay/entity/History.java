@@ -1,35 +1,34 @@
 package com.alswn.pay.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@IdClass(HistoryId.class)
+@Table(name = "HISTORY")
+//@IdClass(HistoryId.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class History {
-	//거래일자,계좌번호,거래번호,금액,수수료,취소여부
-	//20180102,11111111,1,1000000,0,N
-	//20180203,11111111,1,500000,1000,Y
 	
-	@Id
-	@Temporal(TemporalType.DATE)
-	@Column(name="tr_time")
-	private Date trTime;
+	@EmbeddedId
+	private HistoryId historyId;
+	
+//	@Id
+//	@Temporal(TemporalType.DATE)
+//	@Column(name="tr_time")
+//	private Date trTime;
 
-	@Id
-	private Customer Customer;
+//	@Id
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "customer_acct_no")
+//	private Customer customer;
 	
-	@Id
-	@Column(name="seq")
-	private int seq;
+//	@Id
+//	@Column(name="seq")
+//	private int seq;
 	
 	@Column(name="tr_amt")
 	private double trAmt;
@@ -38,7 +37,64 @@ public class History {
 	private double trComm;
 
 	@Column(name="status")
-	private boolean status;
+	private String status;
+
+//	public Date getTrTime() {
+//		return trTime;
+//	}
+//
+//	public void setTrTime(Date trTime) {
+//		this.trTime = trTime;
+//	}
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
+//	public int getSeq() {
+//		return seq;
+//	}
+//
+//	public void setSeq(int seq) {
+//		this.seq = seq;
+//	}
+
+	public double getTrAmt() {
+		return trAmt;
+	}
+
+	public void setTrAmt(double trAmt) {
+		this.trAmt = trAmt;
+	}
+
+	public double getTrComm() {
+		return trComm;
+	}
+
+	public void setTrComm(double trComm) {
+		this.trComm = trComm;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public HistoryId getHistoryId() {
+		return historyId;
+	}
+
+	public void setHistoryId(HistoryId historyId) {
+		this.historyId = historyId;
+	}
+	
 	
 	
 }

@@ -51,16 +51,4 @@ public class BranchController {
 		return null;
 	}
 
-	
-	@PostMapping(value = "/upload", consumes = "multipart/form-data")
-    public void uploadMultipart(@RequestParam("file") MultipartFile file) throws IOException {
-		
-		List<Branch> braches = DataUtil.read(Branch.class, file.getInputStream(), file.getName());
-		for(Branch branch : braches){
-			System.out.println(branch);
-		}
-		
-        branchRepository.saveAll(braches);
-    }
-
 }
