@@ -9,8 +9,11 @@ import javax.persistence.IdClass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @IdClass(HistoryId.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class History {
 	//거래일자,계좌번호,거래번호,금액,수수료,취소여부
 	//20180102,11111111,1,1000000,0,N

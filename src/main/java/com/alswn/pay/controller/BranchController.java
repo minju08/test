@@ -1,19 +1,30 @@
 package com.alswn.pay.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.alswn.pay.dto.BranchResDto;
 import com.alswn.pay.dto.TotalBranchResDto;
+import com.alswn.pay.entity.Branch;
+import com.alswn.pay.repository.BranchRepository;
+import com.alswn.pay.util.DataUtil;
 
 @RestController
 @RequestMapping(value = "/branch")
 public class BranchController {
 	
+	@Autowired
+	private BranchRepository branchRepository;
 	
 	
 	
@@ -40,5 +51,16 @@ public class BranchController {
 		return null;
 	}
 
+	
+	@PostMapping(value = "/upload", consumes = "multipart/form-data")
+    public void uploadMultipart(@RequestParam("file") MultipartFile file) throws IOException {
+		
+		List<Branch> braches = DataUtil.read(Branch.class, file.getInputStream(), file.getName());
+		for(Branch branch : braches){
+			System.out.println(branch);
+		}
+		
+        branchRepository.saveAll(braches);
+    }
 
 }
