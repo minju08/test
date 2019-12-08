@@ -1,7 +1,5 @@
 # test
-# Spring Boot, MySQL, JPA, Hibernate Rest API Tutorial
-
-Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
+# Spring Boot, H2, JPA Rest API Tutorial
 
 ## Requirements
 
@@ -48,7 +46,7 @@ The app defines following REST APIs.
     
     POST /branch
         기능 : 분당점과 판교점을 통폐합하여 판교점으로 관리점 이관을 하였습니다. 지점명을 입력하면 해당지점의 거래금액 합계를 출력하는 API
-        RequestBodt : { "brName":"관리점명" }
+        RequestBody : { "brName":"관리점명" }
 
 
 You can test them using postman or any other rest client.
