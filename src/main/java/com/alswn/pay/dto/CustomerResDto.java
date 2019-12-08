@@ -1,5 +1,9 @@
 package com.alswn.pay.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_EMPTY)
 public class CustomerResDto {
 //	[
 //	{“year”:2018,
@@ -12,15 +16,15 @@ public class CustomerResDto {
 //		“sumAmt”:0000}
 //	]
 	
-	private long year;
+	private String year;
 	private String name;
 	private String acctNo;
 	private double sumAmt;
 	
-	public long getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(long year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getName() {
@@ -41,5 +45,18 @@ public class CustomerResDto {
 	public void setSumAmt(double sumAmt) {
 		this.sumAmt = sumAmt;
 	}
+	
+	public CustomerResDto(String year, String name, String acctNo, double sumAmt) {
+		this.year = year;
+		this.name = name;
+		this.acctNo = acctNo;
+		this.sumAmt = sumAmt;
+	}
+	
+	public CustomerResDto(String name, String acctNo) {
+		this.name = name;
+		this.acctNo = acctNo;
+	}
+	
 	
 }

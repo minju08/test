@@ -1,7 +1,9 @@
 package com.alswn.pay.util;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +68,9 @@ public class DataLoader implements ApplicationRunner {
 			history.setTrAmt(csvHistory.getTrAmt());
 			history.setStatus(csvHistory.getStatus());
 			Customer customer = customerService.findByAcctNo(csvHistory.getAcctNo());
-			HistoryId historyId = new HistoryId(csvHistory.getTrTime(), customer, csvHistory.getSeq());
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+			Date time = simpleDateFormat.parse(csvHistory.getTrTime());
+			HistoryId historyId = new HistoryId(time, customer, csvHistory.getSeq());
 			history.setHistoryId(historyId);
 			histories.add(history);
 		}

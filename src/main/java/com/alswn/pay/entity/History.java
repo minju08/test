@@ -9,26 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "HISTORY")
-//@IdClass(HistoryId.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class History {
 	
 	@EmbeddedId
 	private HistoryId historyId;
-	
-//	@Id
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="tr_time")
-//	private Date trTime;
-
-//	@Id
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "customer_acct_no")
-//	private Customer customer;
-	
-//	@Id
-//	@Column(name="seq")
-//	private int seq;
 	
 	@Column(name="tr_amt")
 	private double trAmt;
@@ -38,30 +23,6 @@ public class History {
 
 	@Column(name="status")
 	private String status;
-
-//	public Date getTrTime() {
-//		return trTime;
-//	}
-//
-//	public void setTrTime(Date trTime) {
-//		this.trTime = trTime;
-//	}
-//
-//	public Customer getCustomer() {
-//		return customer;
-//	}
-//
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
-//
-//	public int getSeq() {
-//		return seq;
-//	}
-//
-//	public void setSeq(int seq) {
-//		this.seq = seq;
-//	}
 
 	public double getTrAmt() {
 		return trAmt;

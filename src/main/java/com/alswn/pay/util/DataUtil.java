@@ -32,7 +32,7 @@ public class DataUtil {
             return reader.<T>readValues(stream).readAll();
     	} else {
     		CsvSchema schema = CsvSchema.builder()
-    	            .addColumn("trTime",CsvSchema.ColumnType.STRING)
+    	            .addColumn("trTime",CsvSchema.ColumnType.NUMBER_OR_STRING)
     	            .addColumn("acctNo",CsvSchema.ColumnType.STRING)
     	            .addColumn("seq",CsvSchema.ColumnType.STRING)
     	            .addColumn("trAmt",CsvSchema.ColumnType.NUMBER)

@@ -11,9 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Embeddable
 public class HistoryId implements Serializable {
 	
+
+	@JsonFormat(pattern="yy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	@Column(name="tr_time")
 	private Date trTime;

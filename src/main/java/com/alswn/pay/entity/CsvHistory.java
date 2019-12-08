@@ -10,7 +10,7 @@ public class CsvHistory {
 	//20180102,11111111,1,1000000,0,N
 	//20180203,11111111,1,500000,1000,Y
 	
-	private Date trTime;
+	private String trTime;
 
 	private String acctNo;
 	
@@ -22,11 +22,11 @@ public class CsvHistory {
 
 	private String status;
 
-	public Date getTrTime() {
+	public String getTrTime() {
 		return trTime;
 	}
 
-	public void setTrTime(Date trTime) {
+	public void setTrTime(String trTime) {
 		this.trTime = trTime;
 	}
 

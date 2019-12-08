@@ -20,9 +20,6 @@ public class HistoryController {
 	@GetMapping(value = "")
 	public ResponseEntity<TotalBranchResDto> getHistory(){
 		
-		History history = historyRepository.findTop1ByStatus("N");
-		String acctNo = history.getHistoryId().getCustomer().getAcctNo();
-		
 		return null;
 	}
 

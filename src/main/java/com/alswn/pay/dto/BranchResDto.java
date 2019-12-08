@@ -32,5 +32,12 @@ public class BranchResDto {
 	public void setSumAmt(double sumAmt) {
 		this.sumAmt = sumAmt;
 	}
+	
+	public BranchResDto(String brName, String brCode, double sumAmt) {
+		super();
+		this.brName = brName;
+		this.brCode = brCode;
+		this.sumAmt = sumAmt;
+	}
 
 }
